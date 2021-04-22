@@ -1,0 +1,28 @@
+@model HotelAlif.Models.Room
+@{
+    ViewData["Title"] = "Edit";
+}
+<form asp-action="EditRoom" asp-controller="Room" method="POST">
+    <div class="container">
+        <input type="hidden" asp-for="Id" value="@Model.Id" />
+        <div>
+            <label>Name</label>
+            <input class="form-controll" type="text" asp-for="Name" value="@Model.Name" />
+        </div>
+        <div>
+            <label>Floor</label>
+            <input class="form-controll" type="number" asp-for="Floor" value="@Model.Floor" />
+        </div>
+        <div>
+            <label>Price</label>
+            <input class="form-controll" type="number" asp-for="Price" value="@Model.Price" />
+        </div>
+        <div>
+            <label>Type</label>
+            <input class="form-controll" type="text" asp-for="Type" value="@Model.Type" />
+        </div>
+        <div>
+            <input class="form-controll btn btn-success" type="submit" value="Submit" />
+        </div>
+    </div>
+</form>
