@@ -19,7 +19,7 @@ namespace HotelAlif.Controllers
         }
 
         public IActionResult Index()
-        {
+        { 
             return View();
         }
         public IActionResult Book()
