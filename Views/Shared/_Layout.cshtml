@@ -2,76 +2,449 @@
 <html lang="ru">
 
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - HotelAlif</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" />
-    <link rel="stylesheet" href="~/assets/css/bootstrap.css">
-    <link href="~/assets/css/css_slider.css" type="text/css" rel="stylesheet" media="all">
-    <link rel="stylesheet" href="~/assets/css/style.css" type="text/css" media="all" />
-    <link href="~/assets/css/font-awesome.min.css" rel="stylesheet">
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>@ViewData["Title"] - Виллы</title>
+	<link rel="~/stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" asp-append-version="true" />
+	<link rel="~/stylesheet" href="~/css/site.css" asp-append-version="true" />
+	<link rel="~/stylesheet" href="~/assets/css/bootstrap.css" asp-append-version="true">
+	<link href="~/assets/css/css_slider.css" type="text/css" rel="stylesheet" media="all" asp-append-version="true">
+	<link rel="~/stylesheet" href="~/assets/css/style.css" type="text/css" media="all" asp-append-version="true" />
+	<link href="~/assets/css/font-awesome.min.css" rel="stylesheet">
 </head>
 
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">HotelAlif</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse"
-                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Главная
-                                страница</a>
-                        </li>
-                        <li><a asp-controller="Home" asp-action="book" class="drop-text">Форма
-                                Бронирования</a></li>
-                        <li class="nav-item">
-                        <li><a asp-controller="Home" asp-action="book" class="drop-text"> О нас
-                            </a></li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home"
-                                asp-action="Privacy">Privacy</a>
-                        </li>
-                        @if (User.Identity.IsAuthenticated)
-                            {
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-action="Logout" asp-controller="Account">Выход</a>
-                            </li>
-                            }
-                            else
-                            {
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-action="Login" asp-controller="Account">Вход</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-action="Register" asp-controller="Account">Регистрация</a>
-                            </li>
-                            }
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
+	<header>
+		<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+			<div class="container">
+				<a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Виллы Алифа</a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse"
+					aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+					<ul class="navbar-nav flex-grow-1">
+						<li class="nav-item">
+							<a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Главная
+								страница</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="booking">Формула
+								Бронирования</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="gallery">Галерея
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="about">О нас
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link text-dark" asp-area="" asp-controller="Home"
+								asp-action="icons">Веб-приложений
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link text-dark" asp-area="" asp-controller="Home"
+								asp-action="Privacy">Privacy</a>
+						</li>
+						@if (User.Identity.IsAuthenticated)
+						{
+		  <li class="nav-item">
+		   <a class="nav-link text-dark" asp-action="Logout" asp-controller="Account">Выход</a>
+		  </li>
+						}
+						else
+						{
+		  <li class="nav-item">
+		   <a class="nav-link text-dark" asp-action="Login" asp-controller="Account">Вход</a>
+		  </li>
+		  <li class="nav-item">
+		   <a class="nav-link text-dark" asp-action="Register" asp-controller="Account">Регистрация</a>
+		  </li>
+						}
+	 </ul>
+	</div>
+   </div>
+  </nav>
+ </header>
+ <div class="about">
+  <div class="container">
+   <div class="w3ls-heading">
+	<h2>Добро пожаловать </h2>
+   </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2021 - HotelAlif - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    @await RenderSectionAsync("Scripts", required: false)
+   <div class="col-md-6 w3-about-right">
+	<div class="about-img-grids">
+	 <div class="col-md-7 about-img">
+	  <img src="~/images/4.jpg" alt=" " />
+	 </div>
+	 <div class="col-md-5 about-img about-img1">
+	  <img src="~/images/6.jpg" alt=" " />
+	 </div>
+	 <div class="clearfix"> </div>
+	</div>
+	<div class="about-img-grids">
+	 <div class="col-md-5 about-img about-img1">
+	  <img src="~/images/7.jpg" alt=" " />
+	 </div>
+	 <div class="col-md-7 about-img">
+	  <img src="~/images/5.jpg" alt=" " />
+	 </div>
+	 <div class="clearfix"> </div>
+	</div>
+   </div>
+   <div class="clearfix"> </div>
+  </div>
+ </div>
+ <div class="container">
+  <main role="main" class="pb-3">
+			@RenderBody()
+  </main>
+ </div>
+ <div class="modal about-modal fade" id="myModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+   <div class="modal-content">
+	<div class="modal-header">
+	 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+							aria-hidden="true">&times;</span></button>
+	 <h4 class="modal-title">Алиф</h4>
+	</div>
+	<div class="modal-body">
+	 <div class="agileits-w3layouts-info">
+	  <img src="~/images/13.jpg" class="img-responsive" alt="" />
+	  <p>Мы вежливы с нашими клиентами и коллегами. Мы никогда не боремся и не унижаем достоинство
+	   своих сотрудников. Мы не просим наших подчиненных коллег выполнять свою личную работу -
+	   например, приносить кофе и т.д. Однако мы никогда не стесняемся предлагать помощь нашим
+	   коллегам, будь то трудовые или личные. Мы с удовольствием делаем мирские вещи для наших
+	   коллег и для офиса - например, вымываем чашки для других, сервируем чай гостям.Мы никогда не
+	   сплетничаем о наших коллегах. Вместо этого мы фокусируемся на их положительных качествах и
+	   подчеркиваем те качества, когда это необходимо. Мы несем ответственность за свои действия,
+	   ошибки, и мы просим их исправить. Мы никогда не сидим без дела. Если рабочая нагрузка в
+	   любой момент времени уменьшается, мы с нетерпением работаем над собой, осваивая новые
+	   навыки. Мы проводим двойную и тройную проверку нашей текущей и предыдущей работы, гарантируя
+	   ее высочайшее качество. Мы ищем отзывы от наших пожилых людей, чтобы помочь нам найти
+	   области, которые мы можем улучшить.</p>
+	 </div>
+	</div>
+   </div>
+  </div>
+ </div>
+
+ <div class="popular-section-wthree">
+  <div class="container">
+   <div class="w3ls-heading">
+	<h3>Популярные Услуги</h3>
+   </div>
+   <div class="popular-agileinfo">
+	<div class="col-md-3 popular-grid">
+	 <i class="fa fa-bell" aria-hidden="true"></i>
+	 <h4>Но время</h4>
+	 <p>Itaque earum rerum hic tenetur a sapiente delectus reiciendis maiores hasellus</p>
+	</div>
+	<div class="col-md-3 popular-grid">
+	 <i class="fa fa-anchor" aria-hidden="true"></i>
+	 <h4>Комфорт</h4>
+	 <p>Это не просто слова</p>
+	</div>
+	<div class="col-md-3 popular-grid popular-grid-bottom">
+	 <i class="fa fa-book" aria-hidden="true"></i>
+	 <h4>Время свиданий</h4>
+	 <p>Мы шутим</p>
+	</div>
+	<div class="col-md-3 popular-grid">
+	 <i class="fa fa-car" aria-hidden="true"></i>
+	 <h4>Еда которую вы не пробывали</h4>
+	 <p>Itaque earum rerum hic tenetur a sapiente delectus reiciendis maiores hasellus</p>
+	</div>
+	<div class="clearfix"> </div>
+   </div>
+  </div>
+ </div>
+ <!-- //popular -->
+ <!-- choose-us -->
+ <div class="why-choose-agile">
+  <div class="container">
+   <div class="w3ls-heading">
+	<h3>Почему Вы Выбрали Именно Нас</h3>
+   </div>
+   <div class="why-choose-agile-grids-top">
+	<div class="col-md-4 agileits-w3layouts-grid">
+	 <div class="wthree_agile_us">
+	  <div class="col-xs-9 agile-why-text">
+	   <h4>Комфортные места для отдыха</h4>
+	   <p>Лучшие условия для вашего пребытия.</p>
+	  </div>
+	  <div class="col-xs-3 agile-why-text">
+	   <div class="wthree_features_grid hvr-rectangle-out">
+		<i class="fa fa-glass" aria-hidden="true"></i>
+	   </div>
+	  </div>
+	  <div class="clearfix"> </div>
+	 </div>
+	 <div class="wthree_agile_us">
+	  <div class="col-xs-9 agile-why-text">
+	   <h4>Наслаждения</h4>
+	   <p>Ваш отдых наша прерогатива.</p>
+	  </div>
+	  <div class="col-xs-3 agile-why-text">
+	   <div class="wthree_features_grid hvr-rectangle-out">
+		<i class="fa fa-gift" aria-hidden="true"></i>
+	   </div>
+	  </div>
+	  <div class="clearfix"> </div>
+	 </div>
+	 <div class="wthree_agile_us">
+	  <div class="col-xs-9 agile-why-text">
+	   <h4>Убедитесь, что</h4>
+	   <p>Наслаждайтесь нашими условиями.</p>
+	  </div>
+	  <div class="col-xs-3 agile-why-text">
+	   <div class="wthree_features_grid hvr-rectangle-out">
+		<i class="fa fa-heart" aria-hidden="true"></i>
+	   </div>
+	  </div>
+	  <div class="clearfix"> </div>
+	 </div>
+	</div>
+	<div class="col-md-4 agileits-w3layouts-grid img">
+	 <img src="~/images/3.jpg" alt=" " class="img-responsive" />
+	</div>
+	<div class="col-md-4 agileits-w3layouts-grid">
+	 <div class="wthree_agile_us">
+	  <div class="col-xs-3 agile-why-text agile-icon-left">
+	   <div class="wthree_features_grid hvr-rectangle-out">
+		<i class="fa fa-picture-o" aria-hidden="true"></i>
+	   </div>
+	  </div>
+	  <div class="col-xs-9 agile-why-text two">
+	   <h4>Департамент правоохранительных органов</h4>
+	   <p>обеспечивал секретность переписки.</p>
+	  </div>
+
+	  <div class="clearfix"> </div>
+	 </div>
+	 <div class="wthree_agile_us">
+	  <div class="col-xs-3 agile-why-text agile-icon-left">
+	   <div class="wthree_features_grid hvr-rectangle-out">
+		<i class="fa fa-user" aria-hidden="true"></i>
+	   </div>
+	  </div>
+	  <div class="col-xs-9 agile-why-text two">
+	   <h4>Массаж</h4>
+	   <p>Массаж возник наряду с другими видами народной медицины в незапамятные времена.</p>
+	  </div>
+
+	  <div class="clearfix"> </div>
+	 </div>
+	 <div class="wthree_agile_us">
+	  <div class="col-xs-3 agile-why-text agile-icon-left">
+	   <div class="wthree_features_grid hvr-rectangle-out">
+		<i class="fa fa-envelope" aria-hidden="true"></i>
+	   </div>
+	  </div>
+	  <div class="col-xs-9 agile-why-text two">
+	   <h4>Теперь жизнь</h4>
+	   <p>Наши замечательные транспортные средства</p>
+	  </div>
+	  <div class="clearfix"> </div>
+	 </div>
+	 <div class="clearfix"> </div>
+	</div>
+	<div class="clearfix"> </div>
+   </div>
+  </div>
+ </div>
+ <!-- //choose-us -->
+ <!-- team -->
+ <div class="team">
+  <div class="container">
+   <div class="w3ls-heading">
+	<h3>Наша команда</h3>
+   </div>
+   <div class="inner_w3l_agile_grids">
+	<div id="horizontalTab">
+	 <ul class="resp-tabs-list">
+	  <li>
+	   <img src="~/images\Artboard13.jpg" alt="" class="img-responsive" />
+	  </li>
+	  <li>
+	   <img src="~/images/Artboard8.jpg" alt=" " class="img-responsive" />
+	  </li>
+	  <li>
+	   <img src="~/images/last.jpg" alt=" " class="img-responsive" />
+	  </li>
+	  <li>
+	   <img src="~/images/Artboard9.jpg" alt=" " class="img-responsive" />
+	  </li>
+	 </ul>
+	 <div class="resp-tabs-container">
+	  <div class="tab1">
+	   <div class="col-md-6 team-img-w3-agile">
+	   </div>
+	   <div class="col-md-6 team-Info-agileits">
+		<h4>Абдулло Курбанов</h4>
+		<p>Директор и соучредитель.</p>
+
+	   </div>
+	   <div class="clearfix"> </div>
+	  </div>
+
+	  <div class="tab2">
+	   <div class="col-md-6 team-img-w3-agile">
+	   </div>
+	   <div class="col-md-6 team-Info-agileits">
+		<h4>Нуриддин Лафизов</h4>
+		<p>Руководитель корпоративного направления.</p>
+		<div class="w3_agileits_social_media team_agile_w3l">
+		</div>
+	   </div>
+	   <div class="clearfix"> </div>
+	  </div>
+	  <div class="tab3">
+
+	   <div class="col-md-6 team-Info-agileits">
+		<h4>Сиёвуш Муминов</h4>
+		<span>Финансовый директор.</p>
+
+	   </div>
+	   <div class="clearfix"> </div>
+	  </div>
+	  <div class="tab4">
+	   <div class="col-md-6 team-img-w3-agile">
+	   </div>
+	   <div class="col-md-6 team-Info-agileits">
+		<h4>Заррина Раджабова</h4>
+		<p>Руководитель отдела формирования бизнес-процессов .</p>
+
+	   </div>
+	   <div class="clearfix"> </div>
+	  </div>
+	 </div>
+	</div>
+   </div>
+  </div>
+ </div>
+ <div class="news-letter">
+  <div class="container">
+   <div class="w3ls-heading">
+	<h3>Подпишитесь Здесь</h3>
+   </div>
+   <div class="agileinfo-subscribe">
+	<form action="#" method="post">
+	 <input type="text" placeholder="Name" name="Name" required="">
+	 <input type="email" placeholder="Email" name="Email" required="">
+	 <input type="submit" value="Subscribe">
+	 <div class="clearfix"> </div>
+	</form>
+   </div>
+  </div>
+ </div>
+
+ <div class="w3-agile-footer">
+  <div class="container">
+   <div class="footer-grids">
+	<div class="col-md-3 footer-grid">
+	 <div class="footer-grid-heading">
+	  <h4>Адресс</h4>
+	 </div>
+	 <div class="footer-grid-info">
+	  <p>ул. Фотех Ниёзи, 51, Душанбе
+	   <span>пн-пт 09:00–18:00; сб 10:00–16:00.</span>
+	  </p>
+	  <p class="phone">Телефон : +992 88889414
+	   <span>Email : <a href="Алиф">Alif.tj</a></span>
+	  </p>
+	 </div>
+	</div>
+	<div class="col-md-3 footer-grid">
+	 <div class="footer-grid-heading">
+	  <h4>Навигация</h4>
+	 </div>
+	 <div class="footer-grid-info">
+	  <ul>
+	   <li><a href="~/about.cshtml">О нас</a></li>
+	   <li><a href="~/gallery.cshtml">Галерея</a></li>
+	   <li><a href="~/icons.cshtml">Значки</a></li>
+	   <li><a href="~/contact.cshtml">Контакты</a></li>
+	  </ul>
+	 </div>
+	</div>
+	<div class="clearfix"> </div>
+   </div>
+
+  </div>
+ </div>
+ <script type="text/javascript" src="~/js/move-top.js"></script>
+ <script type="text/javascript" src="~/js/easing.js"></script>
+ <script type="text/javascript">
+  jQuery(document).ready(function ($) {
+   $(".scroll").click(function (event) {
+	event.preventDefault();
+	$('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+   });
+  });
+ </script>
+
+ <script src="~/js/bootstrap.js"></script>
+
+ <script type="text/javascript">
+  $(document).ready(function () {
+
+   $().UItoTop({ easingType: 'easeOutQuart' });
+
+  });
+ </script>
+ <script src='~/js/jquery.typer.js'></script>
+ <script>
+  var win = $(window),
+   foo = $('#typer');
+
+  foo.typer(['Luxury Hotels', 'Hotels & Resorts', 'Luxury Resorts']);
+
+  // unneeded...
+  win.resize(function () {
+   var fontSize = Math.max(Math.min(win.width() / (1 * 10), parseFloat(Number.POSITIVE_INFINITY)), parseFloat(Number.NEGATIVE_INFINITY));
+
+   foo.css({
+	fontSize: fontSize * .8 + 'px'
+   });
+  }).resize();
+ </script>
+ <!--tabs-->
+ <script src="~/js/easy-responsive-tabs.js"></script>
+ <script>
+  $(document).ready(function () {
+   $('#horizontalTab').easyResponsiveTabs({
+	type: 'default', //Types: default, vertical, accordion           
+	width: 'auto', //auto or any width like 600px
+	fit: true,   // 100% fit in a container
+	closed: 'accordion', // Start closed if in accordion view
+	activate: function (event) { // Callback function if tab is switched
+	 var $tab = $(this);
+	 var $info = $('#tabInfo');
+	 var $name = $('span', $info);
+	 $name.text($tab.text());
+	 $info.show();
+	}
+   });
+   $('#verticalTab').easyResponsiveTabs({
+	type: 'vertical',
+	width: 'auto',
+	fit: true
+   });
+  });
+ </script>
+ <footer class="border-top footer text-muted">
+  <div class="container">
+   &copy; 2021 - Виллы - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+  </div>
+ </footer>
+ <script src="~/lib/jquery/dist/jquery.min.js"></script>
+ <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+ <script src="~/js/site.js" asp-append-version="true"></script>
+	@await RenderSectionAsync("Scripts", required: false)
 </body>
 
 </html>
