@@ -18,7 +18,10 @@ namespace HotelAlif.Controllers
         {
             _logger = logger;
         }
-  
+        public IActionResult Index2()
+        {
+            return View();
+        }
         public IActionResult Index()
         {
             return View();
@@ -27,11 +30,11 @@ namespace HotelAlif.Controllers
         {
             return View();
         }
-        public IActionResult booking()
+        public IActionResult book()
         {
             return View();
         }
-        public IActionResult icons()
+        public IActionResult single()
         {
             return View();
         }
